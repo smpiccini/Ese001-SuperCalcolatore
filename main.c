@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv) {
     float a, b;
-    int scelta;
+    int scelta,c,pot;
     float risultato, frazionale;
     
     puts("Benvenuto nel SuperCaolcolatore, il piu' innovativo software di calcolo presente sul mercato.\n");
@@ -29,28 +29,48 @@ int main(int argc, char** argv) {
     
     switch(scelta) {
         case 1:
-            risultato = 0;
+            risultato = a+b;
             printf("%f+%f=%f\n", a, b, risultato);
             break;
         case 2:
-            risultato = 0;
+            risultato = a-b;
             printf("%f-%f=%f\n", a, b, risultato);
             break;
         case 3:
-            risultato = 0;
+            risultato = a*b;
             printf("%f*%f=%f\n", a, b, risultato);
             break;
         case 4:
-            risultato = 0;
+            risultato = a/b;
             printf("%f/%f=%f\n", a, b, risultato);
             break;
         case 5:
-            risultato = 0;
-            frazionale = 0;
+            risultato = (int)a/(int)b;
+            frazionale = (a/b)-risultato;
             printf("%f/%f= %d (intera) e %f (frazionale)\n", a, b, (int)risultato, frazionale);
             break;
         case 6:
-            risultato = 0;
+            b=(int)b;
+            if (b==0) {
+                risultato=1;
+            }
+            else {
+                if (b<0) {
+                c=-b;
+                }
+                else {
+                c=b;
+                }
+                pot=1;
+                risultato=a;
+                while (pot<c) {
+                    risultato=risultato*a;
+                    pot++;
+                }
+                if (b<0) {
+                    risultato=1/risultato;
+                }
+            }
             printf("%f^%d=%f\n", a, (int)b, risultato);
             break;
         default:
